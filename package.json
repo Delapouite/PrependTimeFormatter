@@ -1,0 +1,19 @@
+{
+  "name": "caterpillar-prepend-time-formatter",
+  "version": "0.0.1",
+  "description": "An example on how to create a custom formatter for caterpillar",
+  "main": "example.coffee",
+  "dependencies": {
+    "caterpillar": "~1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "caterpillar"
+  ],
+  "author": "Delapouite",
+  "license": "BSD"
+}
