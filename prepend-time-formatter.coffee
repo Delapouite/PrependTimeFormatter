@@ -19,21 +19,18 @@ class PrependTimeFormatter extends Formatter
 		{date,file,line,method,color,levelName,message} = @details(levelCode, levelName, args)
 
 		# Check
-		if !message
-			message
+		return message  if !message
+
+		# Mappings
+		color = color and cliColor[color] or (str) -> str
+		levelName = color(levelName+':')
+
+		messageString = "#{levelName} #{message}"
+
+		# Prepend with the time
+		if @config.level is 7
+			"[#{date}] #{messageString}"
 		else
-			# Mappings
-			color = color and cliColor[color] or (str) -> str
-			levelName = color(levelName+':')
-
-			# Message
-			messageString = "#{levelName} #{message}"
-
-			if @config.level is 7
-				# Prepend with the time
-				message = "[#{date}] #{messageString}"
-			else
-				# Result
-				message = messageString
+			messageString
 
 module.exports = PrependTimeFormatter
